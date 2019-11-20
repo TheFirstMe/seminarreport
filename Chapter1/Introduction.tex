@@ -1,0 +1,53 @@
+Crimes (e.g., robbery, rape and murder) severely threaten public
+safety and have emerged as one of the most important problems
+countries face. To improve citizen’s life quality, accurate and reliable
+prediction of crimes is a necessity for helping governments and
+police departments to effectively prevent crimes from happening
+and/or handle them efficiently when they occur.
+
+\noindent To tackle the crime prediction problem, most of existing techniques utilize the demographic data (e.g., racial composition of
+population, population poverty level) [2, 8, 11], which fail to capture the dynamic crime patterns in urban space due to the relatively
+stability of demographic features. Only a small number of schemes
+been proposed more recently to study the crime prediction problem
+by exploring the spatial and temporal patterns of crimes [36, 40].
+However, these solutions did not fully solve the crime prediction
+problem in a dynamic scenario where factors underlying crime
+occurrences may change over time.
+
+\noindent Developing such a crime prediction system, however, requires
+addressing several important technical challenges:
+\begin{enumerate}
+    \item \textbf{Temporal dynamics of crime pattern}\\[0.2cm]The factors underlying crime occurrences may change over time. For example, crime
+    causality on weekdays may differ from weekends. Traditional forecasting approaches, such as Auto-Regressive Integrated Moving
+    Average (ARIMA) [16] and Support Vector Regression (SVR) [3],
+    assume a fixed temporal pattern of time series, which may become
+    limited. Furthermore, if only recent data is considered to make predictions and historical instances are down-weighted, a lot of useful
+    information (e.g., long-term effects with temporal dependencies of
+    crimes) will be lost, limiting the already sparse crime data. 
+    \newpage
+    \item \textbf{Complex Category Dependencies}\\[0.2cm]
+    The dependencies between different categories of crimes can be arbitrary since any pair of crime events could potentially be related for different regions. For example, a robbery occurring yesterday may reduce the probability of a future crime occurrence in the region, due to increased patrol in response to the initial robbery. Hence, it is a significant challenge to generalize the crime prediction framework to handle such complex dependencies among different crime categories over time.
+    
+    \item \textbf{Inherent Interrelations with Ubiquitous Data}\\[0.2cm]
+    Various ubiquitous data might provide helpful contextual information for capturing crime patterns. First, anomalies in an urban scenario (e.g.,
+    blocked driveway and noise) may be considered to be relevant to
+    the crime occurrences. For instance, the occurrence of an assault is
+    likely to cause traffic congestion due to the temporary traffic control by police. Additionally, the citywide Point-of-Interest (POIs)
+    information can characterize the function of each region in a city.
+    Such information could offer insights to advance the understanding of implicit dependencies between crimes occurring in different
+    geographical regions. It is not a trivial task to incorporate both the
+    static (e.g., POIs) and dynamic (e.g., urban anomalies) ubiquitous
+    data into the solution of crime prediction.
+    
+    \item \textbf{Unknown Temporal Relevance}\\[0.2cm]
+    The relevance of crimes across different time frames is unknown. It is not necessary that a future crime occurrence will be more relevant to a recent crime than one that is further away. For example, a crime occurring tomorrow may be related to one occurred yesterday (short-term influence) or last week (periodic influence). Therefore, it is challenging to determine the importance of crimes from previous time steps in assisting the prediction task.
+\end{enumerate}
+To address the aforementioned challenges in solving the crime
+prediction problem, a neural network framework is proposed to predict the crime occurrences of different categories in each region of a city. First, a region-category interaction encoder is developed to handle the complex interactions between regions and categories of occurred crimes. Second, a hierarchical recurrent framework is proposed to jointly encode the temporal dynamics of crime patterns and capture the inherent interrelations between crimes and other ubiquitous data (i.e., urban anomalies and POIs). Finally, the attention mechanism is used to capture the unknown temporal relevance and automatically assign the importance weights to the learned hidden states at different time frames.
+
+\noindent The main contributions of this work are summarized as follows:
+\begin{itemize}
+    \item A category dependency encoder is developed that jointly maps the region and crime into the same latent space with their time-evolving correlations preserved.
+    \item A hierarchical recurrent framework is proposed that is capable of capturing the dynamic crime patterns and their inherent interrelationships with other ubiquitous data. Furthermore, an attention mechanism is introduced for learning the importance weights of crime occurrences across time frames for making predictions.
+    \item Extensive experiments are performed on real-world datasets collected from NYC. Evaluation results demonstrate that this framework significantly outperforms state-of-the-art baselines in terms of prediction accuracy across various settings.
+\end{itemize}
