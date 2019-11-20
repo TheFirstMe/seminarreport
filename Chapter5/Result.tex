@@ -6,9 +6,8 @@ City (NYC). In particular, the aim is to answer the following questions:
 \begin{itemize}
     \item \textbf{Q1}: How does the framework perform as compared to the state-of-the-art techniques in predicting crime occurences of different categories?
     \item \textbf{Q2:}  Does the framework consistently outperform other baselines in terms of prediction accuracy \emph{w.r.t} different time windows with different training and testing time periods?
-    \item \textbf{Q3:} How is the performance of the framework variants with different combinations of key components in the joint framework?
-    \item \textbf{Q4:} How the different choices of model parameters (e.g., embedding size and number of hidden layers) affect the performance of the framework?
-    \item \textbf{Q5:} How is the interpretation of the framework in capturing the unknown temporal relevance when predicting crimes?
+    \item \textbf{Q3:} How the different choices of model parameters (e.g., embedding size and number of hidden layers) affect the performance of the framework?
+    \item \textbf{Q4:} How is the interpretation of the framework in capturing the unknown temporal relevance when predicting crimes?
 \end{itemize}
 
 \section{Experimental Setup}
@@ -23,6 +22,7 @@ a city per month, namely, \textit{Robbery, Burglary, Felony Assault} and
 \textit{Grand Larceny}.
 \begin{table}
 \centering
+\footnotesize
 \begin{tabular}{l|c|c|c|c|c|c|}
 \toprule
 \textbf{Data Source} &\multicolumn{6}{|c}{\textbf{New York City Crime Reports}}\\[0.1cm]
@@ -91,36 +91,36 @@ in the same region of a city; (iii) crimes from different time periods
 show different geographical distribution patterns. Inspired by the
 above observations, the inherent correlations between regions, crime categories and time slots with an attention-based hierarchical recurrent networks is explicitly explored.
 \begin{figure}[t]
-\captionsetup[subfigure]{font=scriptsize,labelfont=scriptsize}
-\centering
-\begin{subfigure}{0.24\textwidth}
-\centering
-\includegraphics[width=0.9\linewidth]{Chapter5/Images/burglary.png} 
-\caption{Burglary – Aug}
-\label{fig:subim1}
-\end{subfigure}
-\begin{subfigure}{0.24\textwidth}
-\centering
-\includegraphics[width=0.9\linewidth]{Chapter5/Images/robbery.png}
-\caption{Robbery – Aug}
-\label{fig:subim2}
-\end{subfigure}
-\begin{subfigure}{0.24\textwidth}
-\centering
-\includegraphics[width=0.9\linewidth]{Chapter5/Images/felony.png}
-\caption{Felony – Aug}
-\label{fig:subim3}
-\end{subfigure}
-\begin{subfigure}{0.24\textwidth}
-\centering
-\includegraphics[width=0.9\linewidth]{Chapter5/Images/grand.png}
-\caption{Grand – Aug}
-\label{fig:subim4}
-\end{subfigure}
+    \captionsetup[subfigure]{font=scriptsize,labelfont=scriptsize}
+    \centering
+    \begin{subfigure}{0.24\textwidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{Chapter5/Images/burglary.png} 
+        \caption{Burglary – Aug}
+        \label{fig:subim1}
+    \end{subfigure}
+    \begin{subfigure}{0.24\textwidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{Chapter5/Images/robbery.png}
+        \caption{Robbery – Aug}
+        \label{fig:subim2}
+    \end{subfigure}
+    \begin{subfigure}{0.24\textwidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{Chapter5/Images/felony.png}
+        \caption{Felony – Aug}
+        \label{fig:subim3}
+    \end{subfigure}
+    \begin{subfigure}{0.24\textwidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{Chapter5/Images/grand.png}
+        \caption{Grand – Aug}
+        \label{fig:subim4}
+    \end{subfigure}
  
-\caption{Geographical distribution of crime occurrences with different categories in New York City on August and December,
-respectively.}
-\label{fig:img2}
+    \caption{Geographical distribution of crime occurrences with different categories in New York City on August and December,
+    respectively.}
+    \label{fig:img2}
 \end{figure}
 
 2) \textbf{Point of Interests (POIs)}: 24,031 POIs of 14
@@ -144,7 +144,7 @@ of the proposed method. The framework is implemented based
 on TensorFlow and Adam [17] is used as the optimizer to learn the
 model parameters. The hyperparameter settings are optimized with
 the grid search strategy. In the experiments, the batch size is set
-as 64, learning rate as 0.001 and and the number of hidden layers in
+as 64, learning rate as 0.001 \newpage \noindent and the number of hidden layers in
 Multilayer Perceptron component as 3.
 
 \subsection{Baselines}
@@ -154,7 +154,6 @@ types of baselines: (i) variant of Recurrent Neural Network models for time seri
 series forecasting methods (\emph{i.e.,} ARIMA and SVR); (iii) both the
 conventional and neural feature-based supervised learning methods for classification (\emph{i.e.,} LR, MLP and Wide\&Deep); (iii) tenor
 factorization-based method for predictive analytics (\emph{i.e.,} TriMine).
-\newpage
 \begin{itemize}
     \item \textbf{Support Vector Regression (SVR)} [3]: a non-parametric machine learning method for regression based on kernel functions.
     
@@ -208,21 +207,55 @@ days in test time frames and the average performance is reported.
 \section{Performance Validation (Q1 and Q2)}
 
 To investigate the performance of all compared methods on different
-targeted time frames, evaluation results from Nov 2014
-and Dec 2014 are shown. The following key observations can be made.\\
-(1) Table \ref{table:macro} and Table \ref{table:category} list the evaluation results of all compared
-methods with respect to different training and test time windows.
-It can be observed that the proposed framework outperforms other baselines over different time frames (i.e., from Nov and Dec).In addition, although different time windows reflect a
-spectrum of temporal diversity which is maintained by month and
-season variation, the proposed method consistently achieves the best
-performance by capturing this temporal dynamic. Therefore, the
-evaluation results across different time frames demonstrate the effectiveness of the framework in modeling time-evolving dependencies
-in crime sequences and reasonably interprets the importance of
-past crime occurrences in predicting future crimes
+targeted time frames, evaluation results from Aug 2014
+and Dec 2014 are shown. The following key observations can be made.
+\begin{enumerate}
+    \item Table \ref{table:macro} and Table \ref{table:category} list the evaluation results of all compared
+    methods with respect to different training and test time windows.
+    It can be observed that the proposed framework outperforms other baselines over different time frames (i.e., from Aug and Dec).
+    In addition, although different time windows reflect a
+    spectrum of temporal diversity which is maintained by month and
+    season variation, the proposed method consistently achieves the best
+    performance by capturing this temporal dynamic. Therefore, the
+    evaluation results across different time frames demonstrate the effectiveness of the framework in modeling time-evolving dependencies
+    in crime sequences and reasonably interprets the importance of
+    past crime occurrences in predicting future crimes.
 
+    \item Experiments are performed to evaluate the framework in predicting 
+    individual crime categories as shown in Table \ref{table:category}. Overall, the proposed
+    framework achieves the best performance across different crime
+    categories in all cases. On average, the proposed framework achieves relatively
+    11.0\%, 18.8\% and 18.7\% performance gains in terms of F1-score over
+    GRU, Wide\&Deep and TriMine, respectively (representing different
+    types of baselines) when predicting Burglaries. In addition, obvious
+    average improvements can also be obtained by the proposed framework in predicting Robberies, 
+    \emph{e.g.,} 21.9\%–LR. Another important observation is
+    that the performance gain between the proposed framework and other baselines
+    becomes larger as data becomes sparser (as shown in Table \ref{table:dataset}). This
+    observation suggests that the proposed framework is capable of handing sparse
+    crime data by exploring inherent region-category-time interactions
+    and utilizing various ubiquitous data. In the occasional cases that
+    the proposed framework misses the best performance in predicting Grand Larcenies, 
+    it still achieves competitive prediction results.
+    
+    \item It can be observed that the proposed framework shows improvement over all baselines. 
+    \emph{First}, the large performance gap between the proposed framework and recurrent 
+    neural network-based scheme (\emph{i.e.,} GRU) indicates the limitation of those 
+    approaches–only modeling the sequential pattern of
+    the crimes and ignoring the relevant ubiquitous data and inherent
+    region-category interactions. \emph{Second}, the evaluation results shed
+    light on the limitations of feature-based learning algorithms (\emph{i.e.,}
+    LR, MLP and Wide\&Deep) which ignore the temporal dynamics embedded in the crime series 
+    data. Third, the significant performance improvement between the proposed framework and 
+    matrix factorization-based method (\emph{i.e.,} TriMine) stem from explicitly modeling 
+    temporal dynamics of latent factors underlying crime occurrences with ubiquitous Data. 
+    \emph{Fourth}, the proposed framework outperforms conventional time series forecasting 
+    methods (\emph{i.e.,} ARIMA and SVR) due to their assumption of fixed temporal pattern.     
+\end{enumerate}
 
 \begin{table}
     \centering
+    \footnotesize
     \begin{tabular}{c|c|c|c|c}
         \toprule
         Month & \multicolumn{2}{|c|}{August} & \multicolumn{2}{|c}{September}\\[0.1cm]
@@ -263,7 +296,7 @@ past crime occurrences in predicting future crimes
 
     \vspace{0.1cm}
 
-    \hspace{-4.4cm}
+    \hspace{-3.85cm}
     \begin{tabular}{c|c|c}
         \toprule
         Month & \multicolumn{2}{|c}{December}\\[0.1cm]
@@ -353,3 +386,141 @@ past crime occurrences in predicting future crimes
     \caption{Crime prediction results for individual category in terms of F1-score}
     \label{table:category}
 \end{table}
+
+\section{Parameter Sensitivity Studies (Q3)}
+
+The proposed framework involves several parameters (\emph{i.e.,} 
+embedding size of region, categorical crime representations, \# of 
+time steps and hidden
+state dimension in recurrent framework, dimension size in attention 
+mechanism). To investigate the robustness of the proposed
+framework, it is examined how the different choices of parameters affect 
+the performance of the framework in predicting crimes. Except for
+the parameter being tested, other parameters are set at the default
+values.
+Figure \ref{fig:img3} shows the evaluation results across crime categories
+(measured by Macro-F1 and Micro-F1) as a function of one selected
+parameter when fixing others. Overall, it can be observed that the framework
+is not strictly sensitive to these parameters. It can be observed that the
+increase of prediction performance saturates as the length of input
+crime sequence reaches around 4. In addition, the embedding
+size is set as 32 in the experiments due to the balance between efficacy
+and computational cost, \emph{i.e.,} the smaller the embedding size is, the
+more efficient the training process will be. Following the same
+experimental procedure, the parameter sensitivity of the framework 
+is further studied in predicting individual categories as measured by
+F1-score and report the evaluation results in Figure \ref{fig:img4}. Similarly, it can be
+observe that hyper-parameters have a relatively low impact on
+the performance of the framework, which demonstrates the robustness
+of the proposed framework.
+\newpage
+\begin{figure}[!h]
+    \captionsetup[subfigure]{font=small,labelfont=small}
+    \centering
+    \vspace{3cm}
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{Chapter5/Images/macro/a.png} 
+        \caption{Hidden State Dimension $r$}
+        \label{fig:mac1}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{Chapter5/Images/macro/b.png}
+        \caption{Embedding Size $e$}
+        \label{fig:mac2}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{Chapter5/Images/macro/c.png}
+        \caption{\# of Time Steps $T$}
+        \label{fig:mac3}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{Chapter5/Images/macro/d.png}
+        \caption{Attention Dimension Size $S$}
+        \label{fig:mac4}
+    \end{subfigure}
+ 
+    \caption{Parameter sensitivity study on the performance of
+    the proposed framework in terms of \emph{F1-score} on August.}
+    \label{fig:img3}
+\end{figure}
+
+\newpage
+\begin{figure}[!htb]
+    \captionsetup[subfigure]{font=small,labelfont=small}
+    \centering
+    \vspace{3cm}
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{Chapter5/Images/f1/a.png} 
+        \caption{Hidden State Dimension $r$}
+        \label{fig:f11}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{Chapter5/Images/f1/b.png}
+        \caption{Embedding Size $e$}
+        \label{fig:f12}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{Chapter5/Images/f1/c.png}
+        \caption{\# of Time Steps $T$}
+        \label{fig:f13}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{Chapter5/Images/f1/d.png}
+        \caption{Attention Dimension Size $S$}
+        \label{fig:f14}
+    \end{subfigure}
+ 
+    \caption{Parameter sensitivity study on the performance of
+    the proposed framework in terms of \emph{Micro-F1} and \emph{Macro-F1} on August.}
+    \label{fig:img4}
+\end{figure}
+
+\newpage
+\section{Case Study (Q4)}
+
+In addition to the above quantitative analysis, a case study is performed. 
+Qualitative examples are provided in Figure \ref{fig:img5} for the better understanding 
+of the attention model. In particular, Figure \ref{fig:v1} and Figure \ref{fig:v2} 
+shows the attention weights of all true positive regions cases with 
+respect to the Burglary  prediction on Sep 09 (weekday) and the 
+Robbery prediction on Nov 22 (weekend), respectively. From these figures, 
+it can be observed 
+that the attention weights are time-evolving across the encoder
+time steps, which suggests that the proposed framework is able to capture
+the dynamic patterns of crime distributions across time slots. Recall
+that attention weights represent the relevance weights of crime
+occurrences across previous time slots for making predictions.
+
+\begin{figure}[!htb]
+    \captionsetup[subfigure]{font=small,labelfont=small}
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{Chapter5/Images/visual/a.png} 
+        \caption{Attention weights of Burglary prediction}
+        \label{fig:v1}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.85\linewidth]{Chapter5/Images/visual/b.png}
+        \caption{Attention weights of Robbery prediction}
+        \label{fig:v2}
+    \end{subfigure}
+
+    \caption{Visualization of attention weights produced by the proposed framework.}
+    \label{fig:img5}
+\end{figure}
