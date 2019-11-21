@@ -3,9 +3,9 @@
 
 \section{Urban sensing applications}
 Numerous novel urban sensing applications have been developed
-recently. For example, Lian et al. studied
+recently. For example, Lian et al. \cite{p4} studied
 the problem of restaurant survival prediction by considering geographical 
-information and user mobility \cite{p4}. They explored various factors under the guidance of the 
+information and user mobility. They explored various factors under the guidance of the 
 following considerations: (H1) the geographical placement of the
 store play an important role in the store’s operation; (H2)
 people’s offline mobility patterns to the store as well as its nearby places influence the business;
@@ -15,15 +15,15 @@ customers’ point of view; (H4) besides well-formatted rating
 scores, review words contain more rich information which a
 simple numeric score does not cover.
 
-\noindent Wang et al. proposed to spot and trace the latent trip purposes of taxi
-trajectories from a city \cite{p5}. They identified a very important
+\noindent Wang et al. \cite{p5} proposed to spot and trace the latent trip purposes of taxi
+trajectories from a city. They identified a very important
 property of human mobility, which is, human mobility synchronization. In other words, 
 if two regions share similar spatial configurations and urban functions in a particular 
 time period, the two regions are likely to have similar patterns of arrival events.
 
-\noindent Wu et al. proposed an end-to-end Deep Event Attendance
+\noindent Wu et al.\cite{p6} proposed an end-to-end Deep Event Attendance
 Prediction (DEAP) framework—a three-level hierarchical LSTM architecture—to explicitly model 
-users’ multi-dimensional and evolving preferences \cite{p6}. DEAP explores the rich contextual 
+users’ multi-dimensional and evolving preferences. DEAP explores the rich contextual 
 information of events to address the aforementioned event cold-start challenge. In specific, its 
 first level transforms events’ contextual information into latent embedding vectors in a non-linear way. 
 In the second level, they aimed to encode the evolving exclusive preferences of users by considering their
@@ -42,9 +42,9 @@ occurrence of each geographical region in a city.
 \section{Crime rate inference and detecting crime hotspots}
 There exist prior studies on crime rate inference and detecting crime 
 hotspots \cite{p7,p2}. 
-For example, Wang et al. aimed to
+For example, Wang et al. \cite{p7} aimed to
 infer crime rate in a city by utilizing Point-of-Interest 
-information \cite{p7}. 
+information. 
 POI data provides venue information such as GPS coordinates, category, 
 popularity, and reviews. 
 These POIs mostly belong to categories such as food, shop, transit, education, etc. 
@@ -58,8 +58,8 @@ by at least 5\% in
 their experiments. This demonstrated that POI data provides additional 
 information about the communities that is not covered by the demographics.
 
-\noindent Yu et al. developed a boosting-based clustering algorithm
-to identify crime hotspots \cite{p2}. The main idea of this approach is
+\noindent Yu et al. \cite{p2} developed a boosting-based clustering algorithm
+to identify crime hotspots. The main idea of this approach is
 to iteratively pick a set of local patterns which give the least classification error
 at each boosting round. Each set of local patterns is referred as an ensemble
 spatio-temporal pattern and is assigned a score. At the end of boosting, a global 
@@ -77,7 +77,7 @@ crime prediction \cite{a3, p3} which can be categorized into two groups.
     as demographic information and symbolic racism.\newpage
     
     \item \textbf{Data mining techniques:}\\[0.2cm]
-    Gerber et al. used Twitter data to predict crimes in a city \cite{a3}. They pursued 
+    Gerber et al. \cite{a3} used Twitter data to predict crimes in a city. They pursued 
     three objectives: (1) quantify the crime prediction gains achieved by adding 
     Twitter-derived information to a standard crime prediction approach based on
      kernel density estimation (KDE), (2) identify existing text processing tools
@@ -88,8 +88,8 @@ crime prediction \cite{a3, p3} which can be categorized into two groups.
          have achieved crime prediction performance gains across 19 of the 25 
          different crime types in their study using a novel application of 
          statistical language processing and spatial modeling.\\
-    Zhao et al. addressed the crime prediction problem by considering spatial-temporal
-     correlations between regions \cite{p3}. They exploited temporal-spatial
+    Zhao et al. \cite{p3} addressed the crime prediction problem by considering spatial-temporal
+     correlations between regions. They exploited temporal-spatial
       correlations 
      for crime
     prediction with urban data. In essence, their aim was to investigate the following 
@@ -114,54 +114,11 @@ jointly models time-evolving dependencies in multi-dimensional
 crime data and incorporates both static and dynamic ubiquitous
 data (i.e., POI and urban anomaly data) into the framework.
 
-% \subsection{Simple Past Tense}
-% Simple Past Tense tends to be the most frequently used tense to refer to the findings of another 
-% author's research. 
 
-% \subsection{Present Perfect Tense}
-% It is often used when the focus of the work is on several authors.
-% \\
-% e.g. 	
-% Jolly [2] and Lawrence [3] have studied ...
-% A number of authors have investigated the strength of … [3, 6, 9]
-% \\
-% Present Perfect Tense may also be used when you want to refer to how much or how little 
-% research has been carried out on a particular topic.
-% \\
-% e.g. Very little research has been carried out into the effects of …
-% \\
-% Present Tense is often used to refer to generally accepted scientific facts.
-% \\
-% e.g. Experimental observations carried out in the past show that … (Smythe, 1995).
-
-% \subsection{Model Verbs}
-% Modal Verbs may be used if you wish to introduce a degree of tentativeness into your comments 
-% about the work of an author. In this situation the reporting verb will be in the passive voice and
-% the addition of a modal verb will indicate the degree of confidence attributed to the information.
-
-% \section{Range of Verbs to Refer to an Author's Work}
-% When referring to sources, your writing style will be more effective if you vary the 
-% choice of verb to refer to the source. The following is a list of frequently used verbs. 
-% When referring to an author, select a verb that is most appropriate to the context and 
-% that conveys the author's meaning accurately.
-% \begin{table}[!ht]
-% \begin{tabular}{lllll}
-% Argued & Concluded & Demonstrated & Discussed \\
-% Examined & Explained & Found & Indicated \\
-% Investigated & Noted & Pointed out & Presented\\
-% Proposed & Provided & Reasoned & Recorded \\
-% Reported & Showed & Stated & Suggested \\
-% Surveyed & & &  
-% \end{tabular}
-% \end{table}
-
-% \section{Example}
-% In \cite{a1} classification and comparison 
-% of dc-dc converters are described.
 \noindent This work is related to literature that focuses on modeling timestamped
  data. Recently, in light of the significant progress yielded 
  by deep learning techniques on natural language processing and speech, many efforts have been made to apply recurrent neural networks (RNN) and its variants in modeling time series data. 
- For example, Wu et al. predicted ratings of users for movies with an LSTM 
+ For example, Wu et al. \cite{p9} predicted ratings of users for movies with an LSTM 
  architecture by exploring users’ historical behavioral trajectories. 
  They proposed Recurrent Recommender Networks (RRN) that are able to predict
   future behavioral trajectories. This was achieved by endowing both users and
@@ -170,9 +127,9 @@ data (i.e., POI and urban anomaly data) into the framework.
     their model offers
 excellent prediction accuracy and is very compact.
 
-\noindent Laptev et al. proposed a LSTM-based
+\noindent Laptev et al. \cite{p8} proposed a LSTM-based
 architecture for special event forecasting at Uber using heterogeneous 
-time-series data \cite{p8}. 
+time-series data. 
 
 \noindent Inspired by the above work, a new neural architecture was developed to 
 capture the time-varying patterns in crime sequences and implicit contextual signals
