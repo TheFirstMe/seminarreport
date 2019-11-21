@@ -47,17 +47,18 @@ The corresponding hidden state in Crime-GRU, Anomaly-GRU and Inter-GRU, respecti
     g_t     &=      \text{GRU}(AM_i,g_{t-1})\notag\\
     \lambda_t &=    \text{GRU}(\Lambda,h_{t-1})
 \end{align}
-where $h_t$ and $g_t$ represent the hidden state corresponding to Crime-GRU and Anomaly-GRU encoder, respectively. In particular, we
-feed a concatenated vector [$h_t$:$g_t$] as input into the Inter-GRU encoder to explore the dynamic interactions between the occurrences of crimes and urban anomalies. $\Lambda$ denotes the sequence of concatenated vector across $T$ time slots. \\Formally, $\Lambda = [[h_1:g_1],...,[h_T,g_T]]$. $\lambda_t$ is the hidden state of Inter-GRU encoder which captures the inherent dependencies between the crime and anomaly sequence.
+where $h_t$ and $g_t$ represent the hidden state corresponding to Crime-GRU and 
+Anomaly-GRU encoder, respectively. In particular, 
+concatenated vector [$h_t$:$g_t$] is fed as input into the Inter-GRU encoder to explore the dynamic interactions between the occurrences of crimes and urban anomalies. $\Lambda$ denotes the sequence of concatenated vector across $T$ time slots. \\Formally, $\Lambda = [[h_1:g_1],...,[h_T,g_T]]$. $\lambda_t$ is the hidden state of Inter-GRU encoder which captures the inherent dependencies between the crime and anomaly sequence.
 
 \section{Attention Mechanism}
 
 One limitation of the recurrent neural network based architectures
 lies in that they encode the input sequence to a fixed length internal
 representation, which results in worse performance for long input
-sequences [25]. To overcome this limitation, the attention mechanism was proposed to allow the proposed hierarchical recurrent
+sequences. To overcome this limitation, the attention mechanism was proposed to allow the proposed hierarchical recurrent
 framework to learn where to pay attention in the input sequence
-for each item in the output sequence [29]. Particularly, the attention
+for each item in the output sequence. Particularly, the attention
 mechanism aims to free the encoder-decoder architecture from the
 fixed-length internal representation by introducing a context vector
 to model the relevance. Formally, the attention mechanism can be
@@ -67,9 +68,9 @@ represented as follows:
             \alpha_m &= \frac{exp(W_uu_m)}{\sum_{m^{'}}exp(W_uu_{m^{'}})}\notag\\
             \hat{\nu} &= \sum_{m=1}^M\alpha_m\nu_m \label{eq3}
 \end{align}
-where we use $S$ to represent the attention dimension size. \(W_\nu \in R^{S\times R} \text{ and } W_u \in R^{1\times S}\) represent attention weight metrics. $b_m \in R^S$ is the attention bias. The number of input vectors is denoted by $M$. $\alpha_m$ m indicates the learned importance weight which corresponds to projected vector $\nu_m$ and $\hat{\nu}$ represents the new hidden representation which concatenates different hidden vectors. $W_u$ and $W_m$ are defined as two transmission matrices. For simplicity, Eq. \ref{eq3} is denoted as $\hat{\nu} = $ Attention($\nu_1,...,\nu_m,...,\nu_M$) in the following subsections. 
+where $S$ is used to represent the attention dimension size. \(W_\nu \in R^{S\times R} \text{ and } W_u \in R^{1\times S}\) represent attention weight metrics. $b_m \in R^S$ is the attention bias. The number of input vectors is denoted by $M$. $\alpha_m$ m indicates the learned importance weight which corresponds to projected vector $\nu_m$ and $\hat{\nu}$ represents the new hidden representation which concatenates different hidden vectors. $W_u$ and $W_m$ are defined as two transmission matrices. For simplicity, Eq. \ref{eq3} is denoted as $\hat{\nu} = $ Attention($\nu_1,...,\nu_m,...,\nu_M$) in the following subsections. 
 
-Our objective is to predict the crime occurrence in each region \(R_i \in [R_1,...,R_I]\) in the target time slot, based on the distribution
+The objective is to predict the crime occurrence in each region \(R_i \in [R_1,...,R_I]\) in the target time slot, based on the distribution
 patterns of past crimes and urban anomalies, \emph{i.e.,} $[x_1,...,x_T]$ and $[y_1,...,y_T]$. However,the recurrent framework only encodes the input sequence from previous slots with a fixed length $T$ using internal representations and the performance will drop when the sequence length is large. To address this drawback, an attention mechanism is employed on the recurrent framework to
 capture the relevance of crime patterns learned from previous time
 slots in assisting the prediction of future crime occurrences.
