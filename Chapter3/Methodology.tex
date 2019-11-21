@@ -20,8 +20,8 @@ conducted between $\mu \text{ and } AM_{i,k}$ for urban anomalies.
 
 \section{Hierarchical Recurrent Framework}
 
-A hierarchical recurrent framework is developed to encode the temporal dynamics of crime patterns and their inherent interrelations with urban anomalies. Recurrent Neural Network (RNN) models have been widely applied in time series analysis. There exist various RNN architectures with different recurrent units, such as RNN [23], Long Short Term Memory (LSTM) [43] and Gated recurrent units
-(GRU) [37]. GRU is similar to LSTM as both utilize gating information to prevent vanishing gradient problem in conventional RNN, but is computationally more efficient and effective on less training data [6]. Therefore, in this section, GRU is introduced as a concrete example of a recurrent unit for the recurrent framework. The recurrent framework is flexible to employ other recurrent units (e.g., LSTM). The effect of recurrent unit selection on model performance
+A hierarchical recurrent framework is developed to encode the temporal dynamics of crime patterns and their inherent interrelations with urban anomalies. Recurrent Neural Network (RNN) models have been widely applied in time series analysis. There exist various RNN architectures with different recurrent units, such as RNN, Long Short Term Memory (LSTM) and Gated recurrent units
+(GRU). GRU is similar to LSTM as both utilize gating information to prevent vanishing gradient problem in conventional RNN, but is computationally more efficient and effective on less training data. Therefore, in this section, GRU is introduced as a concrete example of a recurrent unit for the recurrent framework. The recurrent framework is flexible to employ other recurrent units (e.g., LSTM). The effect of recurrent unit selection on model performance
 is explored in Section 4
 
 The recurrent framework has a three-level GRU architecture. In
@@ -95,14 +95,14 @@ respectively. The activation function is specified as sigmod (denoted as $\sigma
 
 \section{Learning Process}
 
-In this subsection, learning process of the framework as introduced in Section 3, the objective is to derive the value of $z_{i,j,k}$ which denotes: does crime with category $C_j$ occur at region $R_i$ in \emph{k}-th time slot. A commonly used metric in the loss function of binary classification tasks is cross entropy [22]. Thus, the loss function which incorporates the constraint
+In this subsection, learning process of the framework as introduced in Section 3, the objective is to derive the value of $z_{i,j,k}$ which denotes: does crime with category $C_j$ occur at region $R_i$ in \emph{k}-th time slot. A commonly used metric in the loss function of binary classification tasks is cross entropy. Thus, the loss function which incorporates the constraint
 term in Eq. \ref{1} is defined as follows:
 \begin{align}
     L   &=  - \sum_{i,j,k} z_{i,j,k} \text{log}\hat{z}_{i,j,k} + (1 - z_{i,j,k}) \text{ log}(1 - \hat{z}_{i,j,k}) \notag \\
         &+  \frac{1}{R} | E_R - P_M \cdot W_{POI} |
 \end{align}
 where $\hat{z}_{i,j,k}$ denotes the estimated probability of \emph{j}-th category crime occurrence in region $R_i$ in \emph{k}-th time slot. Here, \emph{S} is the sampled crimes in the training process. The weights can be achieved by minimizing the loss function. In this work, Adaptive Moment
-Estimation (Adam) [17] is used to learn the parameters of the framework.
+Estimation (Adam) is used to learn the parameters of the framework.
 
 % Buck \textendash boost converters allow to keep the bus voltage constant since any level of 
 % string current can be set. Thus, the upper limit of PV panels per string for the buck\textendash boost 

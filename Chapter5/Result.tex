@@ -131,7 +131,7 @@ Table 1) were collected. Each POI is formatted as (venue name, category, address
 of different categories from citizens through a mobile app or phone
 calls. Each complaint record is in the format of (complaint category,
 latitude, longitude, timestamp).4 key complaint categories (\emph{e.g.,} Noise, Blocked Driveway, Illegal Parking and Building
-Use) were selected which are studied in [33].
+Use) were selected which are studied.
 New York City was divided into 77 disjointed geographical regions based on the information of political districts 2. Each region
 is an area of the city as defined for police purposes.
 
@@ -141,7 +141,7 @@ The hyper-parameters play important roles in the framework, as they determine ho
 trained. In the experiments, each of the key parameters
 in the framework are varied and others are fixed to examine the parameter sensitivity
 of the proposed method. The framework is implemented based
-on TensorFlow and Adam [17] is used as the optimizer to learn the
+on TensorFlow and Adam is used as the optimizer to learn the
 model parameters. The hyperparameter settings are optimized with
 the grid search strategy. In the experiments, the batch size is set
 as 64, learning rate as 0.001 \newpage \noindent and the number of hidden layers in
@@ -155,29 +155,29 @@ series forecasting methods (\emph{i.e.,} ARIMA and SVR); (iii) both the
 conventional and neural feature-based supervised learning methods for classification (\emph{i.e.,} LR, MLP and Wide\&Deep); (iii) tenor
 factorization-based method for predictive analytics (\emph{i.e.,} TriMine).
 \begin{itemize}
-    \item \textbf{Support Vector Regression (SVR)} [3]: a non-parametric machine learning method for regression based on kernel functions.
+    \item \textbf{Support Vector Regression (SVR)}: a non-parametric machine learning method for regression based on kernel functions.
     
-    \item \textbf{Auto-Regressive Integrated Moving Average (ARIMA)} [16]: a well-known time series prediction model for understanding
+    \item \textbf{Auto-Regressive Integrated Moving Average (ARIMA)}: a well-known time series prediction model for understanding
     and predicting future values in a time series.
     
-    \item \textbf{Logistic Regression (LR)} [13]:  a statistical model which forecasts a region’s crime occurrence based on temporal features
+    \item \textbf{Logistic Regression (LR)}:  a statistical model which forecasts a region’s crime occurrence based on temporal features
     (\emph{e.g.,} the day of a week and the month of a year) extracted from
     historical crime logs.
     
-    \item \textbf{Multilayer Perceptron (MLP)} [7]: it incorporates temporal features from historical distributions of crimes into a deep neural
+    \item \textbf{Multilayer Perceptron (MLP)}: it incorporates temporal features from historical distributions of crimes into a deep neural
     network architecture, to model the non-linearities in crime data.
     
-    \item \textbf{Tensor Decomposition (TriMine)} [24]: this method is applied
+    \item \textbf{Tensor Decomposition (TriMine)}: this method is applied
     to predict crime occurrences by extending the Matrix Factorization scheme to consider the temporal dimension of crime data.
     Specifically, a three-dimension tensor is utilized to represent the
     crime series of all regions in a city ($1^{st}$ dimension–region, $2^{nd}$
     dimension–crime category and $3^{rd}$ dimension–time).
     
-    \item \textbf{Wide and Deep Learning (Wide\&Deep)} [4]:  a wide \& deep
+    \item \textbf{Wide and Deep Learning (Wide\&Deep)}:  a wide \& deep
     learning framework to combine the strengths of wide linear
     models and deep neural networks for predictive analytics.
     
-    \item \textbf{Gated Recurrent Unit (GRU)} [5]:  a gating recurrent neural network model which has fewer parameters than LSTM by lacking
+    \item \textbf{Gated Recurrent Unit (GRU)}:  a gating recurrent neural network model which has fewer parameters than LSTM by lacking
     an output gate to achieve computational efficiency.
 \end{itemize}
 In the experiments, all parameters are also learned using the Adam
@@ -190,7 +190,7 @@ compared methods in predicting crime occurrences (posed as a
 classification problem) of each region in a city, two types of
 evaluation metrics are adopted: (i) \emph{F1-score} (trade-off between precision
 and recall) is used to evaluate the accuracy of predicting a specific category
-of crime occurrence. (ii) \emph{Marco-F1} and \emph{Micro-F1} [12] is used to
+of crime occurrence. (ii) \emph{Marco-F1} and \emph{Micro-F1} is used to
 evaluate the prediction accuracy across different crime categories.
 These metrics have been widely used in the problems of multi-class
 classification to calculate the overall performance across different

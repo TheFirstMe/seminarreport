@@ -3,56 +3,112 @@
 
 \section{Urban sensing applications}
 Numerous novel urban sensing applications have been developed
-recently [14, 20, 21, 28, 32, 34, 35, 42]. For example, Lian et al. studied
-the problem of restaurant survival prediction by considering geographical information and user mobility [20]. They explored various factors under the guidance of the following considerations: (H1) the geographical placement of the
+recently. For example, Lian et al. studied
+the problem of restaurant survival prediction by considering geographical 
+information and user mobility \cite{p4}. They explored various factors under the guidance of the 
+following considerations: (H1) the geographical placement of the
 store play an important role in the store’s operation; (H2)
-people’s offline mobility patterns to the store as well as its nearby places influence the business; (H3) user’s rating scores
+people’s offline mobility patterns to the store as well as its nearby places influence the business;
+ (H3) user’s rating scores
 (e.g., on Yelp) are explicit evaluations of the store from the
 customers’ point of view; (H4) besides well-formatted rating
 scores, review words contain more rich information which a
 simple numeric score does not cover.
 
 \noindent Wang et al. proposed to spot and trace the latent trip purposes of taxi
-trajectories from a city [28]. They identified a very important
-property of human mobility, which is, human mobility synchronization. In other words, if two regions share similar spatial configurations and urban functions in a particular time period, the two regions are likely to have similar patterns of arrival events.
+trajectories from a city \cite{p5}. They identified a very important
+property of human mobility, which is, human mobility synchronization. In other words, 
+if two regions share similar spatial configurations and urban functions in a particular 
+time period, the two regions are likely to have similar patterns of arrival events.
 
 \noindent Wu et al. proposed an end-to-end Deep Event Attendance
-Prediction (DEAP) framework—a three-level hierarchical LSTM architecture—to explicitly model users’ multi-dimensional and evolving preferences [34]. DEAP explores the rich contextual information of events to address the aforementioned event cold-start challenge. In specific, its first level transforms events’ contextual information into latent embedding vectors in a non-linear way. In the second level, they aimed to encode the evolving exclusive preferences of users by considering their attendance behavior across different groups. In DEAP’s third level, it encodes users’ sequential preferences to capture the time-evolving attendance patterns and interacts with the generated embedding vectors from the first two levels.
-With the three-level LSTM architecture, the generated semantic embedding vectors encode multi-dimensional preferences (i.e., sequential, contextual, and exclusive preferences). Finally, the embeddings are fed into a Multilayer Perceptron (MLP) for predicting the event attendance of each user. 
+Prediction (DEAP) framework—a three-level hierarchical LSTM architecture—to explicitly model 
+users’ multi-dimensional and evolving preferences \cite{p6}. DEAP explores the rich contextual 
+information of events to address the aforementioned event cold-start challenge. In specific, its 
+first level transforms events’ contextual information into latent embedding vectors in a non-linear way. 
+In the second level, they aimed to encode the evolving exclusive preferences of users by considering their
+ attendance behavior across different groups. In DEAP’s third level, it encodes users’ sequential 
+ preferences to capture the time-evolving attendance patterns and interacts with the generated 
+ embedding vectors from the first two levels.
+With the three-level LSTM architecture, the generated semantic embedding vectors encode 
+multi-dimensional preferences (i.e., sequential, contextual, and exclusive preferences). 
+Finally, the embeddings are fed into a Multilayer Perceptron (MLP) for 
+predicting the event attendance of each user. 
 
-\noindent However, the crime prediction problem in urban sensing remains a challenging problem to be solved. Here, we develop an end-to-end model to predict the future crime occurrence of each geographical region in a city.
+\noindent However, the crime prediction problem in urban sensing remains a challenging 
+problem to be solved. Here, we develop an end-to-end model to predict the future crime 
+occurrence of each geographical region in a city.
 
 \section{Crime rate inference and detecting crime hotspots}
-There exist prior studies on crime rate inference and detecting crime hotspots [26, 36]. For example, Wang et al. aimed to
-infer crime rate in a city by utilizing Point-of-Interest information [26]. 
-POI data provides venue information such as GPS coordinates, category, popularity, and reviews. These POIs mostly belong to categories such as food, shop, transit, education, etc. 
-Using such categorical information of POIs are useful to profile neighborhood functions. Such neighborhood functions could further help predict crime rate. Their experiments showed that incorporating POI features significantly improve the crime rate inference. Adding
-POI features in addition to demographics features reduced the relative error by at least 5\% in their experiments. This demonstrated that POI data provides additional information about the communities that is not covered by the demographics
+There exist prior studies on crime rate inference and detecting crime 
+hotspots \cite{p7,p2}. 
+For example, Wang et al. aimed to
+infer crime rate in a city by utilizing Point-of-Interest 
+information \cite{p7}. 
+POI data provides venue information such as GPS coordinates, category, 
+popularity, and reviews. 
+These POIs mostly belong to categories such as food, shop, transit, education, etc. 
+Using such categorical information of POIs are useful to profile neighborhood 
+functions. Such 
+neighborhood functions could further help predict crime rate. Their experiments 
+showed that 
+incorporating POI features significantly improve the crime rate inference. Adding
+POI features in addition to demographics features reduced the relative error 
+by at least 5\% in 
+their experiments. This demonstrated that POI data provides additional 
+information about the communities that is not covered by the demographics.
 
 \noindent Yu et al. developed a boosting-based clustering algorithm
-to identify crime hotspots [36]. The main idea of this approach is
+to identify crime hotspots \cite{p2}. The main idea of this approach is
 to iteratively pick a set of local patterns which give the least classification error
 at each boosting round. Each set of local patterns is referred as an ensemble
-spatio-temporal pattern and is assigned a score. At the end of boosting, a global pattern is constructed from these ensemble patterns. This global pattern is capable of predicting crime by scaling the total score of an input, a collection of crime indicators, evaluated on each
-crafted ensemble patterns 
+spatio-temporal pattern and is assigned a score. At the end of boosting, a global 
+pattern is constructed from these ensemble patterns. This global pattern is capable 
+of predicting crime by scaling the total score of an input, a collection of crime 
+indicators, evaluated on each crafted ensemble patterns 
 
 \section{The problem of crime prediction}
 
-This project is closely related to works that study the problem of crime prediction [8, 10, 11, 40] which can be categorized into two groups. 
+This project is closely related to works that study the problem of 
+crime prediction \cite{a3, p3} which can be categorized into two groups. 
 \begin{enumerate}
     \item \textbf{Statistical methods:}\\[0.2cm]
-    Census statistical information was used to discuss crime events, such as demographic information [8] and symbolic racism [11].\newpage
+    Census statistical information was used to discuss crime events, such 
+    as demographic information and symbolic racism.\newpage
     
     \item \textbf{Data mining techniques:}\\[0.2cm]
-    Gerber et al. used Twitter data to predict crimes in a city [10]. They pursued three objectives: (1) quantify the crime prediction gains achieved by adding Twitter-derived information to a standard crime prediction approach based on kernel density estimation (KDE), (2) identify existing text processing tools and associated parameterizations that can be employed effectively in the analysis of tweets for the purpose of crime prediction, and (3) identify performance bottlenecks that most affect the Twitter-based crime prediction approach. Their results indicated progress toward each objective. They have achieved crime prediction performance gains across 19 of the 25 different crime types in their study using a novel application of statistical language processing and spatial modeling.\\
-    Zhao et al. addressed the crime prediction problem by considering spatial-temporal correlations between regions [40]. They exploited temporal-spatial correlations for crime
-    prediction with urban data. In essence, their aim was to investigate the following two challenging questions: (i) what temporal-spatial patterns can be observed about crimes with urban data; and (ii) how to model these patterns mathematically for crime prediction. For temporal-spatial patterns, they focused their investigation on (a) intraregion temporal correlation and (b) inter-region spatial correlation. Intra-region temporal correlation tells how crime evolves over time for a region in a city; while inter-region spatial correlation suggests the geographical influence among regions in the city. They proposed a novel framework TCP, which captures temporal-spatial correlations for crime prediction.
+    Gerber et al. used Twitter data to predict crimes in a city \cite{a3}. They pursued 
+    three objectives: (1) quantify the crime prediction gains achieved by adding 
+    Twitter-derived information to a standard crime prediction approach based on
+     kernel density estimation (KDE), (2) identify existing text processing tools
+      and associated parameterizations that can be employed effectively in the 
+      analysis of tweets for the purpose of crime prediction, and (3) identify
+       performance bottlenecks that most affect the Twitter-based crime prediction
+        approach. Their results indicated progress toward each objective. They
+         have achieved crime prediction performance gains across 19 of the 25 
+         different crime types in their study using a novel application of 
+         statistical language processing and spatial modeling.\\
+    Zhao et al. addressed the crime prediction problem by considering spatial-temporal
+     correlations between regions \cite{p3}. They exploited temporal-spatial
+      correlations 
+     for crime
+    prediction with urban data. In essence, their aim was to investigate the following 
+    two challenging questions: (i) what temporal-spatial patterns can be observed 
+    about crimes with urban data; and (ii) how to model these patterns 
+    mathematically for crime prediction. For temporal-spatial patterns, 
+    they focused their investigation on (a) intraregion temporal correlation 
+    and (b) inter-region spatial correlation. Intra-region temporal correlation 
+    tells how crime evolves over time for a region in a city; while inter-region
+     spatial correlation suggests the geographical influence among regions in the
+      city. They proposed a novel framework TCP, which captures temporal-spatial 
+      correlations for crime prediction.
 \end{enumerate}
 
 \noindent Most of the above studies forecast the crimes using statistical
 or conventional data mining approaches. However, those previous
 crime prediction techniques relied on a good amount of high quality
-static demographic data or ignored the dynamic temporal dependencies in the distributions of crime sequence. In contrast, this work
+static demographic data or ignored the dynamic temporal dependencies in the 
+distributions of crime sequence. In contrast, this work
 develops a neural network-based crime prediction model which
 jointly models time-evolving dependencies in multi-dimensional
 crime data and incorporates both static and dynamic ubiquitous
@@ -102,11 +158,23 @@ data (i.e., POI and urban anomaly data) into the framework.
 % \section{Example}
 % In \cite{a1} classification and comparison 
 % of dc-dc converters are described.
-\noindent This work is related to literature that focuses on modeling timestamped data [15, 18, 30, 38, 39]. Recently, in light of the significant progress yielded by deep learning techniques on natural language Session 9C: Neural Prediction CIKM’18, October 22-26, 2018, Torino, Italy 1431 processing and speech, many efforts have been made to apply recurrent neural networks (RNN) and its variants in modeling time series data [18, 23]. For example, Wu et al. predicted ratings of users for movies with an LSTM architecture by exploring users’ historical behavioral trajectories [31]. They proposed Recurrent Recommender Networks (RRN) that are able to predict future behavioral trajectories. This was achieved by endowing both users and movies with a LSTM autoregressive model that captures dynamics, in addition to a more traditional low-rank factorization. On multiple real-world datasets, their model offers
+\noindent This work is related to literature that focuses on modeling timestamped
+ data. Recently, in light of the significant progress yielded 
+ by deep learning techniques on natural language processing and speech, many efforts have been made to apply recurrent neural networks (RNN) and its variants in modeling time series data. 
+ For example, Wu et al. predicted ratings of users for movies with an LSTM 
+ architecture by exploring users’ historical behavioral trajectories. 
+ They proposed Recurrent Recommender Networks (RRN) that are able to predict
+  future behavioral trajectories. This was achieved by endowing both users and
+   movies with a LSTM autoregressive model that captures dynamics, in addition
+    to a more traditional low-rank factorization. On multiple real-world datasets, 
+    their model offers
 excellent prediction accuracy and is very compact.
 
 \noindent Laptev et al. proposed a LSTM-based
-architecture for special event forecasting at Uber using heterogeneous time-series data [18]. 
+architecture for special event forecasting at Uber using heterogeneous 
+time-series data \cite{p8}. 
 
-\noindent Inspired by the above work, a new neural architecture was developed to capture the time-varying patterns in crime sequences and implicit contextual signals embedded in relevant ubiquitous data.
+\noindent Inspired by the above work, a new neural architecture was developed to 
+capture the time-varying patterns in crime sequences and implicit contextual signals
+ embedded in relevant ubiquitous data.
 

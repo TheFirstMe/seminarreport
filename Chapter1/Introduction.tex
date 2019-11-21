@@ -6,10 +6,10 @@ police departments to effectively prevent crimes from happening
 and/or handle them efficiently when they occur.
 
 \noindent To tackle the crime prediction problem, most of existing techniques utilize the demographic data (e.g., racial composition of
-population, population poverty level)\cite{b1} [2, 8, 11], which fail to capture the dynamic crime patterns in urban space due to the relatively
+population, population poverty level)\cite{b1,p1,a1}, which fail to capture the dynamic crime patterns in urban space due to the relatively
 stability of demographic features. Only a small number of schemes
 been proposed more recently to study the crime prediction problem
-by exploring the spatial and temporal patterns of crimes [36, 40].
+by exploring the spatial and temporal patterns of crimes \cite{p2,p3}.
 However, these solutions did not fully solve the crime prediction
 problem in a dynamic scenario where factors underlying crime
 occurrences may change over time.
@@ -19,10 +19,10 @@ addressing several important technical challenges:
 \begin{enumerate}
     \item \textbf{Temporal dynamics of crime pattern}\\[0.2cm]The factors underlying crime occurrences may change over time. For example, crime
     causality on weekdays may differ from weekends. Traditional forecasting approaches, such as Auto-Regressive Integrated Moving
-    Average (ARIMA) [16] and Support Vector Regression (SVR) [3],
+    Average (ARIMA) and Support Vector Regression (SVR),
     assume a fixed temporal pattern of time series, which may become
     limited. Furthermore, if only recent data is considered to make predictions and historical instances are down-weighted, a lot of useful
-    information (e.g., long-term effects with temporal dependencies of
+    information (\emph{e.g.,} long-term effects with temporal dependencies of
     crimes) will be lost, limiting the already sparse crime data. 
     \newpage
     \item \textbf{Complex Category Dependencies}\\[0.2cm]
